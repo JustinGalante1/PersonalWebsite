@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Axios from 'axios';
 
 import Hero from '../components/Hero';
 import Content from '../components/Content';
@@ -37,6 +38,28 @@ class ContactPage extends Component {
             disabled: true,
             emailSent: false
         });
+
+        Axios.post('/api/email', this.state)
+            .then(result => {
+                if(result.data.success){
+                    this.setState({
+                        disabled: false,
+                        emailSent: true
+                    })
+                }
+                else{
+                    this.setState({
+                        disabled: false,
+                        emailSent: false
+                    })
+                }
+            })
+            .catch(err=> {
+                this.setState({
+                    disabled: false,
+                    emailSent: false
+                })
+            })
     }
 
     render() {
