@@ -14,15 +14,6 @@ body{
   margin: 0 0 0 0;
 }
 
-.bgcontainer{
-  min-width: 100%;
-  min-height: 100%;
-  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(./images/bg5.jpg);
-  object-fit: cover;
-  vertical-align: middle;
-  align-items: center;
-}
-
 .nav-container{
   margin: auto;
 }
