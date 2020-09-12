@@ -1,17 +1,21 @@
 import React, { Component } from 'react'
+import Content from '../components/Content';
+
+import Hero from '../components/Hero';
 
 export class AboutPage extends Component {
 
-    constructor(props) {
-        super(props)
-        this.state = {
-             
-        }
-    }
-
     render() {
         return (
-            <p>About Page</p>
+            <div>
+                <Hero title={this.props.title}></Hero>
+
+                <Content>
+                    <p>
+                        Yuh aye yuh aye yuh aye
+                    </p>
+                </Content>
+            </div>
         )
     }
 }
