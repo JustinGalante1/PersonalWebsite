@@ -1,37 +1,61 @@
 import React, { Component } from 'react';
 import './App.css';
-import themeFile from './util/theme';
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
 
-//Pages
-import home from './pages/home';
-import about from './pages/about';
+//Bootstrap stuff
+import Container from 'react-bootstrap/Container';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 
 //Components
-import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
-//Material UI
-import {ThemeProvider as MuiThemeProvider} from '@material-ui/core/styles';
-import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
-import Grid from '@material-ui/core/Grid';
-
-const theme = createMuiTheme(themeFile);
 
 class App extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: 'Justin Nguyen-Galante',
+      headerLinks: [
+        {title: 'Home', path: '/'},
+        {title: 'About', path: '/about'},
+        {title: 'Home', path: '/contact'}
+      ],
+      home: {
+        title: 'Hi, My Name\'s Justin',
+        subTitle: "I like trains",
+        text: 'Scroll down to learn more about me'
+      },
+      about: {
+        title: 'About me'
+      },
+      contact: {
+        title: 'Contact me'
+      }
+    }
+  }
+
   render() {
     return (
-      <MuiThemeProvider theme={theme}>
-        <Router>
-          <Navbar/>
-          <div className="container">
-            <Switch>
-              <Route path="/" component={home}/>
-              <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-              <Route path="/about" component={about}/>
-            </Switch>
-          </div>
-        </Router>
-      </MuiThemeProvider>
+      <Router>
+        <Container className="p-0" fluid={true}>
+          <Navbar className="border-bottom" bg="transparent" expand="lg">
+            <Navbar.Brand>Justin Nguyen-Galante</Navbar.Brand>
+            <Navbar.Toggle className="border-0" aria-controls="navbar-toggle"/>
+            <Navbar.Collapse id="navbar-toggle">
+              <Nav className="ml-auto">
+                <Link className="nav-link" to="/">Home</Link>
+                <Link className="nav-link" to="/about">About</Link>
+                <Link className="nav-link" to="/contact">Contact</Link>
+              </Nav>
+            </Navbar.Collapse>
+          </Navbar>
+
+          <Footer>
+            
+          </Footer>
+        </Container>
+      </Router>
     );
   }
 }

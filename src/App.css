@@ -7,14 +7,16 @@ body{
 }
 
 .container{
-  margin: 64px auto 0 auto;
-  max-width: 100%;
+  margin: 0 auto 0 auto;
+}
+
+.pageDivide{
+  margin: 0 0 0 0;
 }
 
 .bgcontainer{
-  position: fixed;
   min-width: 100%;
-  min-height: 80%;
+  min-height: 100%;
   background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(./images/bg5.jpg);
   object-fit: cover;
   vertical-align: middle;
